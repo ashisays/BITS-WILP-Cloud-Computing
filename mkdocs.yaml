@@ -1,0 +1,82 @@
+# official tutorial 
+# mkdocs-material: https://squidfunk.github.io/mkdocs-material/
+# mkdocs: https://www.mkdocs.org/user-guide/configuration/
+
+site_name: My BITS WILP Knowledge Base
+theme:
+  name: material
+  logo: Assets/logo.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      accent: green
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  #  favicon: attachment/portrait.png
+  language: en
+  features:
+    #- navigation.expand 
+    #- tabs 
+markdown_extensions: 
+  - attr_list # https://squidfunk.github.io/mkdocs-material/reference/images/
+  - pymdownx.tabbed  # https://squidfunk.github.io/mkdocs-material/reference/content-tabs/
+  - nl2br # newline-to-break 
+  - toc:
+      permalink: '#' # heading anchor 
+      slugify: !!python/name:pymdownx.slugs.uslugify
+  - admonition
+  - codehilite:
+      guess_lang: false
+      linenums: false
+  - footnotes
+  - meta
+  - def_list
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  # - pymdownx.emoji:
+      # emoji_generator: !!python/name:pymdownx.emoji.to_png
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - pymdownx.tilde
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+plugins:
+  - search
+  - roamlinks 
+    #- autolinks 
+  - exclude:
+      glob:
+        - "*.tmp"
+        - "*.pdf"
+        - "*.gz"
+        - "EmbeddedNotes*.md"
+      regex:
+        - '.*\.(tmp|bin|tar)$'
+extra_css:
+  - https://unpkg.com/mermaid@7.1.2/dist/mermaid.css
+extra_javascript:
+  - javascripts/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js
